@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Chatbot - Document Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar - Document Management -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>RAG Chatbot</h1>
+                <p class="subtitle">Document Intelligence AI</p>
+            </div>
+
+            <div class="upload-section">
+                <label for="pdf-upload" class="upload-label">
+                    <input 
+                        type="file" 
+                        id="pdf-upload" 
+                        accept=".pdf,.txt" 
+                        multiple
+                        hidden
+                    >
+                    <span class="upload-button">+ Upload Document</span>
+                </label>
+            </div>
+
+            <div class="documents-section">
+                <h2>Documents</h2>
+                <div id="documents-list" class="documents-list">
+                    <p class="empty-state">No documents uploaded yet</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-container">
+            <div class="chat-header">
+                <h2>Chat with Your Documents</h2>
+                <p id="status" class="status">Ready to chat</p>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="chat-messages">
+                <div class="message assistant-message">
+                    <div class="message-content">
+                        <p>Hello! I'm your document-aware AI assistant. Upload a PDF document and ask me anything about it. I'll retrieve relevant information and provide accurate answers based on the document content.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Context Display -->
+            <div id="context-container" class="context-container hidden">
+                <div class="context-header">
+                    <h3>Retrieved Context</h3>
+                    <button id="close-context" class="close-button">×</button>
+                </div>
+                <div id="context-content" class="context-content"></div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="message-input" 
+                        placeholder="Ask a question about your documents..."
+                        disabled
+                    >
+                    <button id="send-button" class="send-button" disabled>
+                        <span>Send</span>
+                    </button>
+                </div>
+                <p class="hint">Upload a PDF first to start chatting</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
